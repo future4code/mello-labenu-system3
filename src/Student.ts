@@ -6,7 +6,7 @@ export class Student implements User {
     public id: number,
     public name: string,
     public email: string,
-    public birthDate: number,
+    public birthDate: moment.Moment,
     public hobies: string[],
   ) {}
 
