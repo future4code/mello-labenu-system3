@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "name": "Mirian de Alcântara",
+    "email": "mi@outlook.com",
+    "specialties": ["BACKEND", "TESTS", "OOP"]
+  },
+  {
+    "id": 1,
+    "name": "Paulo Barros",
+    "email": "pb@outlook.com",
+    "specialties": ["REACT", "REDUX"]
+  },
+  {
+    "id": 3,
+    "name": "Ana Paula",
+    "email": "ap@hotmail.com",
+    "specialties": ["BACKEND", "TESTS", "OOP"]
+  },
+  {
+    "id": 122,
+    "name": "Joaquim Rodrigues",
+    "email": "joaq@gmail.com",
+    "specialties": ["CSS", "REACT", "TYPESCRIPT"]
+  }
+]
