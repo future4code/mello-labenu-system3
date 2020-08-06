@@ -22,5 +22,11 @@
     "name": "Joaquim Rodrigues",
     "email": "joaq@gmail.com",
     "specialties": ["CSS", "REACT", "TYPESCRIPT"]
+  },
+  {
+    "id": 4,
+    "name": "João Pedro",
+    "email": "jpjp@gmail.com",
+    "specialties": ["BACKEND", "TESTS", "OOP"]
   }
 ]

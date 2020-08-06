@@ -6,12 +6,11 @@ export class Student implements User {
     public id: number,
     public name: string,
     public email: string,
-    public birthDate: number,
-    public hobies: string[],
+    public birthDate: moment.Moment,
+    public hobies: string[]
   ) {}
 
   public getAge(): number {
-    return moment().diff(this.birthDate, 'years');
+    return moment().diff(this.birthDate, "years");
   }
-
 }

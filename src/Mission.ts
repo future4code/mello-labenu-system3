@@ -1,10 +1,12 @@
+import {
+  studentsList,
+  newStudentsList,
+  teachersList,
+  newTeachersList,
+} from "./Data";
 import moment from "moment";
-import { Teacher } from "./Teacher";
+import { Teacher, TEACHER_SPECIALTY } from "./Teacher";
 import { Student } from "./Student";
-import { FileManager } from "./FileManager";
-
-const newStudentsList = new FileManager("students.json");
-let studentsList: Student[] = newStudentsList.readFile();
 
 export default abstract class Mission {
   private name: string = "";
@@ -38,12 +40,51 @@ export default abstract class Mission {
     return this.currentModule;
   }
 
-  public addTeacher(teacher: Teacher) {
-    this.teachers.push(teacher);
+  public addTeacher(id: number, name: string, email: string) {
+    const newTeacher: Teacher = new Teacher(id, name, email, [
+      TEACHER_SPECIALTY.BACKEND,
+      TEACHER_SPECIALTY.TESTS,
+      TEACHER_SPECIALTY.OOP,
+    ]);
+
+    const checkTeacherId = (): boolean => {
+      for (let teacher of teachersList) {
+        if (teacher.id === newTeacher.id) {
+          return false;
+        }
+      }
+      return true;
+    };
+
+    const createNewTeachers = (): void => {
+      if (checkTeacherId() === false) {
+        console.log("O ID inserido é inválido. Tente novamente com outro ID.");
+      } else {
+        teachersList.push(newTeacher);
+        newTeachersList.writeFile(teachersList);
+      }
+    };
+
+    createNewTeachers();
   }
 
-  public addStudent(student: Student) {
-    this.students.push(student);
+  public addStudent(
+    id: number,
+    name: string,
+    email: string,
+    birthDate: moment.Moment,
+    hobbies: string[]
+  ) {
+    const newStudent: Student = new Student(
+      id,
+      name,
+      email,
+      birthDate,
+      hobbies
+    );
+
+    studentsList.push(newStudent);
+    newStudentsList.writeFile(newStudent);
   }
 
   public setName(name: string) {
