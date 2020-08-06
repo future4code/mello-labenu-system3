@@ -5,8 +5,6 @@ import Mission from "./Mission";
 import FullTimeMission from "./FullTimeMission";
 import NightMission from "./NightMission";
 
-const args = process.argv[2].toLowerCase();
-
 const melloTeachers: Teacher[] = [];
 const melloStudents: Student[] = [];
 
@@ -35,22 +33,6 @@ export const newNightMission: Mission = new NightMission(
 
 newNightMission.setName("Turing-na-night");
 
-const newTaskManager = new MainTaskManager();
-
-if (args === "students") {
-  newTaskManager.printAllStudents();
-} else {
-  console.log(
-    "Comando inválido! Digite 'npm run print students' ou 'npm run print teachers'."
-  );
-}
-
-if (args === "teachers") {
-    newTaskManager.printAllTeachers();
-  } else {
-    console.log(
-      "Comando inválido! Digite 'npm run print teachers' ou 'npm run print teachers'."
-    );
-  }
+export const newTaskManager = new MainTaskManager();
 
 //newTaskManager.execute();
