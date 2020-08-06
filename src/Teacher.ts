@@ -15,6 +15,7 @@ export class Teacher implements User {
     public id: number,
     public name: string,
     public email: string,
+    public idade: number,
     public specialties: TEACHER_SPECIALTY[]
   ) {}
 }
