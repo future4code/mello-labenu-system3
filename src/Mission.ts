@@ -55,7 +55,7 @@ export default abstract class Mission {
 
     studentsList.find((student) => {
       if (student.id === id) {
-        age = moment().diff(student.birthday, "years");
+        age = moment().diff(student.birthDate, "years");
       }
     });
     return age;
