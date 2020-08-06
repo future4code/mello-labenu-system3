@@ -1,6 +1,10 @@
 import { Teacher } from "./Teacher";
 import { Student } from "./Student";
+import Mission from "./Mission";
 import { FileManager } from "./FileManager";
+
+export const newMissionsList = new FileManager("missions.json");
+export const missionsList: Mission[] = newMissionsList.readFile();
 
 export const newStudentsList = new FileManager("students.json");
 export const studentsList: Student[] = newStudentsList.readFile();
