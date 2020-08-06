@@ -45,4 +45,12 @@ if (args === "students") {
   );
 }
 
-// newTaskManager.execute();
+if (args === "teachers") {
+    newTaskManager.printAllTeachers();
+  } else {
+    console.log(
+      "Comando inválido! Digite 'npm run print teachers' ou 'npm run print teachers'."
+    );
+  }
+
+//newTaskManager.execute();

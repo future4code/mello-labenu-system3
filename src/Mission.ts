@@ -44,9 +44,10 @@ export default abstract class Mission {
     id: number,
     name: string,
     email: string,
+    idade: number,
     specialties: TEACHER_SPECIALTY[]
   ) {
-    const newTeacher: Teacher = new Teacher(id, name, email, specialties);
+    const newTeacher: Teacher = new Teacher(id, name, email, idade ,specialties);
 
     const checkTeacherId = (): boolean => {
       for (let teacher of teachersList) {

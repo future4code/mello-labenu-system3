@@ -1,16 +1,16 @@
 import moment from "moment";
 import { TEACHER_SPECIALTY } from "./Teacher";
 import { newMission, newNightMission } from ".";
-import { studentsList, missionsList, newMissionsList } from "./DataManager";
+import { studentsList, missionsList, newMissionsList, teachersList } from "./DataManager";
 
 export default class MainTaskManager {
   public execute(): void {
-    newMission.addTeacher(1, "João Pedro", "jpjp@gmail.com", [
+    newMission.addTeacher(1, "João Pedro", "jpjp@gmail.com", 22, [
       TEACHER_SPECIALTY.BACKEND,
       TEACHER_SPECIALTY.CSS,
       TEACHER_SPECIALTY.OOP,
     ]);
-    newMission.addTeacher(2, "Rogéria Batista", "rgb@gmail.com", [
+    newMission.addTeacher(2, "Rogéria Batista", "rgb@gmail.com", 33, [
       TEACHER_SPECIALTY.BACKEND,
       TEACHER_SPECIALTY.REACT,
       TEACHER_SPECIALTY.OOP,
@@ -19,7 +19,7 @@ export default class MainTaskManager {
     newNightMission.addTeacher(
       3,
       "Pedro de Alcântara João Carlos Leopoldo Salvador Bibiano Francisco Xavier de Paula Leocádio Miguel Gabriel Rafael Gonzaga",
-      "pedrão@outlook.com",
+      "pedrão@outlook.com", 29,
       [
         TEACHER_SPECIALTY.REACT,
         TEACHER_SPECIALTY.REDUX,
@@ -27,7 +27,7 @@ export default class MainTaskManager {
       ]
     );
 
-    newNightMission.addTeacher(4, "", "jpjp@hotmail.com", [
+    newNightMission.addTeacher(4, "", "jpjp@hotmail.com", 27,[
       TEACHER_SPECIALTY.CSS,
       TEACHER_SPECIALTY.TESTS,
       TEACHER_SPECIALTY.OOP,
@@ -70,6 +70,17 @@ export default class MainTaskManager {
       console.log("Curso: Desenvolvimento Web Full Stack");
       console.log("Turma: ", newMission.getName("Mello"));
       console.log("Idade: ", newMission.getAgeById(student.id), "\n");
+    });
+  }
+
+  public printAllTeachers(): void {
+    console.log("Professores \n");
+
+    teachersList.map((teacher) => {
+      console.log("Nome: ", teacher.name);
+      console.log("Email: ", teacher.email);
+      console.log('Idade:', teacher.idade)
+      console.log('Especialidades: ', teacher.specialties);
     });
   }
 }
