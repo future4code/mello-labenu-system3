@@ -1,10 +1,10 @@
 import User from "./User";
 
-enum TEACHER_SPECIALTY {
+export enum TEACHER_SPECIALTY {
   REACT = "REACT",
   REDUX = "REDUX",
   CSS = "CSS",
-  TESTES = "TESTES",
+  TESTS = "TESTS",
   TYPESCRIPT = "TYPESCRIPT",
   OOP = "OOP",
   BACKEND = "BACKEND",
