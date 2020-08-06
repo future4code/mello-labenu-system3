@@ -1,1 +1,16 @@
-{"id":1,"name":"Flávia Arruda de Assis","email":"flavia@outlook.com","birthday":"10/10/1981","hobbies":["Pintar","ouvir música","praticar"]}
+[
+  {
+    "id": 1,
+    "name": "Pietro Oliveira",
+    "email": "mi@outlook.com",
+    "birthday": "2000-10-10T02:00:00.000Z",
+    "hobbies": ["jogar bola"]
+  },
+  {
+    "id": 2,
+    "name": "Valentina Moraes",
+    "email": "val@outlook.com",
+    "birthday": "1976-11-23T02:00:00.000Z",
+    "hobbies": ["andar de skate"]
+  }
+]
