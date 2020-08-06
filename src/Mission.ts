@@ -3,7 +3,7 @@ import {
   newStudentsList,
   teachersList,
   newTeachersList,
-} from "./Data";
+} from "./DataManager";
 import moment from "moment";
 import { Teacher, TEACHER_SPECIALTY } from "./Teacher";
 import { Student } from "./Student";
@@ -40,12 +40,13 @@ export default abstract class Mission {
     return this.currentModule;
   }
 
-  public addTeacher(id: number, name: string, email: string) {
-    const newTeacher: Teacher = new Teacher(id, name, email, [
-      TEACHER_SPECIALTY.BACKEND,
-      TEACHER_SPECIALTY.TESTS,
-      TEACHER_SPECIALTY.OOP,
-    ]);
+  public addTeacher(
+    id: number,
+    name: string,
+    email: string,
+    specialties: TEACHER_SPECIALTY[]
+  ) {
+    const newTeacher: Teacher = new Teacher(id, name, email, specialties);
 
     const checkTeacherId = (): boolean => {
       for (let teacher of teachersList) {
@@ -56,16 +57,16 @@ export default abstract class Mission {
       return true;
     };
 
-    const createNewTeachers = (): void => {
-      if (checkTeacherId() === false) {
-        console.log("O ID inserido é inválido. Tente novamente com outro ID.");
-      } else {
-        teachersList.push(newTeacher);
-        newTeachersList.writeFile(teachersList);
-      }
-    };
-
-    createNewTeachers();
+    if (checkTeacherId() === false) {
+      console.log(
+        "O ID inserido para novo(a) professor(a) é inválido. Tente novamente com outro ID."
+      );
+    } else {
+      console.log("Professor(a) adicionado(a) com sucesso!");
+      this.teachers.push(newTeacher);
+      teachersList.push(newTeacher);
+      newTeachersList.writeFile(teachersList);
+    }
   }
 
   public addStudent(
@@ -83,8 +84,25 @@ export default abstract class Mission {
       hobbies
     );
 
-    studentsList.push(newStudent);
-    newStudentsList.writeFile(newStudent);
+    const checkStudentId = (): boolean => {
+      for (let student of studentsList) {
+        if (student.id === newStudent.id) {
+          return false;
+        }
+      }
+      return true;
+    };
+
+    if (checkStudentId() === false) {
+      console.log(
+        "O ID inserido para novo(a) estudante é inválido. Tente novamente com outro ID."
+      );
+    } else {
+      console.log("Estudante adicionado(a) com sucesso!");
+      this.students.push(newStudent);
+      studentsList.push(newStudent);
+      newStudentsList.writeFile(studentsList);
+    }
   }
 
   public setName(name: string) {
