@@ -1,50 +1,48 @@
-import moment from "moment";
+import { Student } from "./Student";
+import { Teacher } from "./Teacher";
+import MainTaskManager from "./MainTaskManager";
 import Mission from "./Mission";
 import FullTimeMission from "./FullTimeMission";
 import NightMission from "./NightMission";
-import { FileManager } from "./FileManager";
-import { studentsList, teachersList } from "./Data";
 
-// CRIAÇÃO DE TURMAS
-const newMissionsList = new FileManager("missions.json");
-let missionsList: Mission[] = newMissionsList.readFile();
+const args = process.argv[2].toLowerCase();
+
+const melloTeachers: Teacher[] = [];
+const melloStudents: Student[] = [];
 
 export const newMission: Mission = new FullTimeMission(
   0,
   "14/04/2020",
   "14/10/2020",
-  teachersList,
-  studentsList,
+  melloTeachers,
+  melloStudents,
   4
 );
 
 newMission.setName("Mello");
 
+let turingTeachers: Teacher[] = [];
+let turingStudents: Student[] = [];
+
 export const newNightMission: Mission = new NightMission(
   1,
   "14/04/2020",
   "14/10/2020",
-  teachersList,
-  studentsList,
+  turingTeachers,
+  turingStudents,
   4
 );
 
 newNightMission.setName("Turing-na-night");
 
-missionsList.push(newMission, newNightMission);
-newMissionsList.writeFile(missionsList);
+const newTaskManager = new MainTaskManager();
 
-console.log(newMission.getAgeById(2));
+if (args === "students") {
+  newTaskManager.printAllStudents();
+} else {
+  console.log(
+    "Comando inválido! Digite 'npm run print students' ou 'npm run print teachers'."
+  );
+}
 
-// CRIAÇÃO DE PROFESSORES
-newMission.addTeacher(1, "João Pedro", "jpjp@gmail.com");
-
-// CRIAÇÃO DE ALUNOS
-newMission.addStudent(
-  1,
-  "Talita Alcântara",
-  "tlt@gmail.com",
-  moment("09/05/1994", "DD/MM/YYYY"),
-  ["Programar"]
-);
-// newStudentsList.writeFile(studentsList);
+// newTaskManager.execute();
