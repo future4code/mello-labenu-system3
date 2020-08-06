@@ -2,9 +2,16 @@ import User from "./User";
 import moment from "moment";
 
 export class Student implements User {
-  constructor() {}
+  constructor(
+    public id: number,
+    public name: string,
+    public email: string,
+    public birthDate: number,
+    public hobies: string[],
+  ) {}
 
   public getAge(): number {
-    return 0; // mock
+    return moment().diff(this.birthDate, 'years');
   }
+
 }
