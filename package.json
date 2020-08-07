@@ -13,7 +13,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "ts-node ./src/index.ts",
-    "print": "ts-node ./src/index.ts",
+    "print": "ts-node ./src/PrintToConsole.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

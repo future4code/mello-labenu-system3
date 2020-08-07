@@ -5,6 +5,11 @@ import Mission from "./Mission";
 import FullTimeMission from "./FullTimeMission";
 import NightMission from "./NightMission";
 
+console.log('\n*=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=*\n');
+console.log('---------------  Bem Vindo ao LABENUSYSTEM 3  ----------------\n')
+console.log('*=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=**=*\n');
+
+
 const melloTeachers: Teacher[] = [];
 const melloStudents: Student[] = [];
 
@@ -35,4 +40,7 @@ newNightMission.setName("Turing-na-night");
 
 export const newTaskManager = new MainTaskManager();
 
-//newTaskManager.execute();
+// Este comando abaixo foi comentado para executar Script "run Print".
+// deve ser descomentado para execução de testes.
+// 
+// newTaskManager.execute();

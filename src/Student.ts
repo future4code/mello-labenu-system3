@@ -7,7 +7,7 @@ export class Student implements User {
     public name: string,
     public email: string,
     public birthDate: moment.Moment,
-    public hobies: string[]
+    public hobbies: string[]
   ) {}
 
   public getAge(): number {
