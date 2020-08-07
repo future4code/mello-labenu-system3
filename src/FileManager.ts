@@ -12,10 +12,7 @@ export class FileManager {
   }
 
   public readFile(): any {
-    const data: any = fs.readFileSync(this.filePath);
-    const arr = [...data.toString()];
-    const x = arr.length;
-    arr.splice(0, x+1);
-    return arr
+    const data = fs.readFileSync(this.filePath);
+    return JSON.parse(data.toString());
   }
 }

@@ -27,7 +27,7 @@ export default class MainTaskManager {
       ]
     );
 
-    newNightMission.addTeacher(4, "", "jpjp@hotmail.com", 27,[
+    newNightMission.addTeacher(4, "João Garcia", "jpjp@hotmail.com", 27,[
       TEACHER_SPECIALTY.CSS,
       TEACHER_SPECIALTY.TESTS,
       TEACHER_SPECIALTY.OOP,
