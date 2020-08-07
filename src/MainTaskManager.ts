@@ -79,8 +79,8 @@ export default class MainTaskManager {
     teachersList.map((teacher) => {
       console.log("Nome: ", teacher.name);
       console.log("Email: ", teacher.email);
-      console.log('Idade:', teacher.idade)
-      console.log('Especialidades: ', teacher.specialties);
+      console.log('Idade:', teacher.age)
+      console.log('Especialidades: ', teacher.specialties,'\n');
     });
   }
 }

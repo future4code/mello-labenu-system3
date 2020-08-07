@@ -52,17 +52,22 @@ export default abstract class Mission {
     const checkTeacherId = (): boolean => {
       for (let teacher of teachersList) {
         if (teacher.id === newTeacher.id) {
-          return false;
+
+          return false
         }
       }
       return true;
     };
 
+    // Condicional de verificação de ID para gravação funcional em versão JSON,
+    // na versão do desafio de gravação em TXT verficação deixou de funcionar por 
+    // questões de retorno do buffer e conversão para string.
+
     if (checkTeacherId() === false) {
-      console.log(
-        "O ID inserido para novo(a) professor(a) é inválido. Tente novamente com outro ID."
-      );
-    } else {
+       console.log(
+         "O ID inserido para novo(a) professor(a) é inválido. Tente novamente com outro ID."
+       );
+     } else {
       console.log("Professor(a) adicionado(a) com sucesso!");
       this.teachers.push(newTeacher);
       teachersList.push(newTeacher);
