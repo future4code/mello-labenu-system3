@@ -43,4 +43,4 @@ export const newTaskManager = new MainTaskManager();
 // Este comando abaixo foi comentado para executar Script "run Print".
 // deve ser descomentado para execução de testes.
 // 
-// newTaskManager.execute();
+//newTaskManager.execute();
